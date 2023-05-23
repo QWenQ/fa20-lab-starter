@@ -1,0 +1,14 @@
+1.
+k is saved in register t0(x5);
+
+2.
+sum is saved in register s0(x8);
+
+3.
+the registers s1(x9), s2(x18) acting as pointers to the source and dest arrays differently;
+
+4.
+loop -> for loop
+
+5.
+visit data in arrays by pointers using base address plus offset slli by 2 in every loop

@@ -1,0 +1,5 @@
+1.line 69: add t1, s0, x0
+2.line 72: add t1, t1, t0
+3.line 82: la a0, 8(s0)
+4.line 76: value in t1 shoud be stored bofore calling callee
+5.line 83: replace lw a1, 0(s0) with mv a1, s1

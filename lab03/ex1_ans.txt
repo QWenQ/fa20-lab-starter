@@ -1,0 +1,14 @@
+1.
+.data: start of the data section;
+.word: creating some space in memory to hold the data followed;
+.text: start of the code segment;
+
+2.
+34: result of fib(9)
+
+3.
+n stored in memory address 0x10000010
+
+4.
+fib(13) = 233
+

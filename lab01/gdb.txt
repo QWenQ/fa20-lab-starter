@@ -1,9 +1,9 @@
-1.
-2.
-3.
-4.
-5.
-6.
-7.
-8.
-9.
+1. run/start arglist
+2. break [file:]line/func
+3. next/step
+4. next
+5. continue/next/step
+6. print variable
+7. display expr
+8. info locals
+9. quit

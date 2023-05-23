@@ -21,4 +21,27 @@ main:
     ecall # Exit
 
 factorial:
+    # prologue
+    addi sp, sp, -8
+    sw s0, 0(sp)
+    sw ra, 4(sp)
+    
+    
     # YOUR CODE HERE
+    mv s0, a0
+    li t0, 1
+    beq s0, t0, Else
+    addi a0, s0, -1
+    jal ra, factorial
+    jal x0, End
+Else:
+    li a0, 1
+    
+End:
+    mul a0, a0, s0
+    
+    # epilogue 
+    lw s0, 0(sp)
+    lw ra, 4(sp)
+    addi sp, sp, 8
+    jr ra
