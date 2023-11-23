@@ -1,8 +1,17 @@
-1.
-2.
+1. kji, jki
+2. ikj, kij
 
 --- lines below are ignored by the AG ---
 
+C[i+j*n] += A[i+k*n] * B[k+j*n];
+                            ijk, ikj, jik, jki, kij, kji
+move through B with stride   1    n    1    0    n    0
+move through A with stride   n    0    n    1    0    1
+move through C with stride   0    n    0    1    n    1
+
 Checkoff Question 1:
+    for every calculation, i-ended sequences are just 0, 1, 1, which means i-ended sequeces make fully use of spatial and temporal locality;
 Checkoff Question 2:
+    for every calculation, j-ended sequences are just n, 0, n, which means j-ended sequeces make less use of spatial and temporal locality;
 Checkoff Question 3:
+    The less stride number the faster it is running.
