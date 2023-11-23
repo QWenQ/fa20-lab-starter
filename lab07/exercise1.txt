@@ -1,24 +1,34 @@
 Scenario 1
-    1.
-    2.
-    3.
+    1. Hit Count, Accesses
+    2. 0.0
+    3. Step Size, 32
 
 Scenario 2
-    1.
-    2.
-    3.
+    1. 64
+    2. MHHH
+    3. 1.0
 
 Scenario 3
-    1.
-    2.
-    3.
-    4.
-    5.
+    1. 0.50, 0.00, 0.33
+    2. 32, 16
+    3. 16
+    4. get Rep Count greater than 1
+    5. =, =, +, =
 
 --- lines below are ignored by the AG ---
 
-Checkoff Question 1:
-Checkoff Question 2:
-Checkoff Question 3:
+Checkoff Question 1: 
+    we always visit 0-indexed block with different tags, in which direct mapped cache updates the data in 0-indexed block with different tags everytime. 
+    So, 0.0 hit rate occurs no matter what the Rep Count is.
+Checkoff Question 2: Step Size and Option
+Checkoff Question 3: 
+    1. M: read 4 continuous int elements [a, b, c, d] from memory into cache
+    2. H: modify the value of a which has already been read in cache, write new value of a element into cache and memory
+    3. H: step forward 2 int size, read the value of c in cache
+    4. H: modify the value of c which has already been read in cache, write new value of c element into cache and memory
 Checkoff Question 4:
-Checkoff Question 5:
+    In the first loop, all data of array has been read into cache, so all accesses will be hit from the second loop. As Rep Count goes
+    to infinity, hit rate equals ((infinity - 16) / infinity = ) 1.0
+Checkoff Question 5: ???
+Checkoff Question 6:
+    After the first loop, all array data has been loaded into L2 cache, so, no miss will happen for L2 cache.
