@@ -29,6 +29,7 @@ Checkoff Question 3:
 Checkoff Question 4:
     In the first loop, all data of array has been read into cache, so all accesses will be hit from the second loop. As Rep Count goes
     to infinity, hit rate equals ((infinity - 16) / infinity = ) 1.0
-Checkoff Question 5: ???
+Checkoff Question 5: 
+    If the behavior of functions is predictable, functions should be sorted by their visit location.
 Checkoff Question 6:
     After the first loop, all array data has been loaded into L2 cache, so, no miss will happen for L2 cache.

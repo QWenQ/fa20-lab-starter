@@ -2,19 +2,58 @@
 
 Part 1
     blocksize = 20, n = 100: 
+        Testing naive transpose        : 0.006 milliseconds
+        Testing transpose with blocking: 0.007 milliseconds
+
     blocksize = 20, n = 1000: 
+        Testing naive transpose        : 1.123 milliseconds
+        Testing transpose with blocking: 0.872 milliseconds
+
     blocksize = 20, n = 2000: 
+        Testing naive transpose        : 13.869 milliseconds
+        Testing transpose with blocking: 4.048 milliseconds
+
     blocksize = 20, n = 5000: 
+        Testing naive transpose        : 128.716 milliseconds
+        Testing transpose with blocking: 26.441 milliseconds
+
     blocksize = 20, n = 10000: 
+        Testing naive transpose        : 637.88 milliseconds
+        Testing transpose with blocking: 110.742 milliseconds
 
     Checkoff Question 1:
-    Checkoff Question 2:
+        blocksize = 20, n = 1000;
+
+    Checkoff Question 2: 
+        As for a small scale array that all data will be loaded into cache at once, cache blocking is an unnecessary operation, 
+        which causing an extra cost. 
 
 Part 2
     blocksize = 50, n = 10000:
+        Testing naive transpose        : 640.512 milliseconds
+        Testing transpose with blocking: 238.925 milliseconds
+
     blocksize = 100, n = 10000:
+        Testing naive transpose        : 704.235 milliseconds
+        Testing transpose with blocking: 155.346 milliseconds
+
     blocksize = 500, n = 10000:
+        Testing naive transpose        : 660.94 milliseconds
+        Testing transpose with blocking: 148.07 milliseconds
+
     blocksize = 1000, n = 10000:
+        Testing naive transpose        : 632.788 milliseconds
+        Testing transpose with blocking: 172.966 milliseconds
     blocksize = 5000, n = 10000:
+        Testing naive transpose        : 637.594 milliseconds
+        Testing transpose with blocking: 627.044 milliseconds
 
     Checkoff Question 3:
+        As blocksize increases, the performance of naive transpose is stable; 
+        the performance of transpose with blocking get increased first and then get decreased. 
+        Q: Why is this the case? 
+        A: as blocksize increases, two stages are in the case: 
+            in the first stage where blocksize is close to cache size, 
+                all data in a blocksize is load into cache at once, so less misses and high hits happens;
+            in the second stage where blocksize is greater than the cache size, 
+                not all data of one blocksize can be loaded into cache, so high misses and low hits happens; 
