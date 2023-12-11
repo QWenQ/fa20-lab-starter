@@ -1,19 +1,29 @@
 Exercise 1:
-    1.
-    2.
-    3.
+    1. 32
+    2. 2, 8, 0, 8
+    3. no, no
 
 Exercise 2:
-    1.
+    1. 00, 20, 40, 60, 80, a0, c0, e0, 00, 20
 
 Exercise 3:
-    1.
+    1. Physical Memory Size
 
 --- lines below are ignored by the AG ---
 
 Exercise 1 Checkoff Questions:
-    1.
-    2.
+    1. 
+    	1. Given a virtual address at very first access, we get the virutal page number and offset;
+	2. In TLB which should be empty, we get a TLB miss;
+	3. In Page Table which should be empty, we get a Page Fault;
+	4. Get the page into the memory from the hard disk;
+	5. Since the physical memory has empty space, the first avaiable will be filled;
+	6. Update the Page Table: set frame number and valid bit in target virtual page entry;
+	7. Update the TLB according to the Page Table.
+    2. Physical memory has only 4 pages while Virtual memory has 8 pages.
 
 Exercise 4 Checkoff Question:
-    1.
+    1. 
+    	In CAMERA, there is only one process and the number of frames is constant.
+    	In VMSIM, there are four processes, which run at the same time, and the number of frames for every process is variable.
+	The reason of higher percentage of TLB misses  is that TLB will be flushed every time when one process is stopped and the allocated frames will be occupied by the running process if page fault happens, in which case a new running process will get more TLB Misses and Page Faults.
