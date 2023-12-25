@@ -1,6 +1,10 @@
 #include "server_utils.h"
 #include <unistd.h>
 
+int server_fd = -1;
+int server_port = 8000;
+char *server_files_directory = NULL;
+
 char *header_tag_left = "<center><h1>";
 char *header_tag_right = "</h1><hr></center>";
 char *content_type = "Content-Type";
@@ -253,13 +257,18 @@ void serve_forever(int *socket_number) {
 #ifdef PROC
       // PART 2 TASK: Implement forking
       /* YOUR CODE HERE */
+      int ret = fork();
+      if (ret < 0) {
+         // error
+         http_make_error(client_socket_number, 500); return;
+      }
 
-      if (/* YOUR CODE HERE */) {
+      if (ret == 0) {
          // This line kills the child process if parent dies
          int r = prctl(PR_SET_PDEATHSIG, SIGTERM);
 
          /* YOUR CODE HERE */
-         
+       
          // These lines exit the current process with code 1 
          // 1) when there was an error in prctl, 2) when the parent has been killed
          if (r == -1 || getppid() != parent_pid) {
@@ -268,6 +277,8 @@ void serve_forever(int *socket_number) {
          }
 
          /* YOUR CODE HERE */
+         dispatch(client_socket_number);
+         break;
       }
 #else
       dispatch(client_socket_number);
